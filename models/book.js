@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
     },
     author: {
       type: Sequelize.STRING,
-      allowNull: true,
+      allowNull: false,
       validate: {
         notNull: {
           msg: "The book must have an author!"

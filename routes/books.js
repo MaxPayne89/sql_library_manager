@@ -18,7 +18,8 @@ router.get('/', asyncHandler( async (req, res) => {
 }));
 
 router.get('/books', asyncHandler( async (req, res) => {
-  const books = await Book.findAll({ order: [["createdAt", "DESC"]] })
+  const books = await Book.findAll({ order: [["id", "DESC"]] })
+  console.log(books)
   res.render('books/index', { books, title: "Books" })
 }));
 

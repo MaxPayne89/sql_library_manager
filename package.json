@@ -10,7 +10,8 @@
     "pug": "^2.0.4",
     "sequelize": "^5.21.9",
     "sequelize-cli": "^5.5.1",
-    "sqlite": "^4.0.7"
+    "sqlite": "^4.0.7",
+    "sqlite3": "^4.2.0"
   },
   "name": "sql_library_manager",
   "version": "1.0.0",
