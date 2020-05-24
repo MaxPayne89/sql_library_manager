@@ -19,12 +19,12 @@ router.get('/', asyncHandler( async (req, res) => {
 
 router.get('/books', asyncHandler( async (req, res) => {
   const books = await Book.findAll({ order: [["id", "DESC"]] })
-  console.log(books)
   res.render('books/index', { books, title: "Books" })
 }));
 
-router.get('/books/new', asyncHandler( async (req, res) => {
-  res.render()
+router.get('/books/:id', asyncHandler( async (req, res) => {
+  const book = await Book.findByPk(req.params.id)
+  res.render('books/detail', { book, title: "Update Book"})
 }))
 
 module.exports = router;
