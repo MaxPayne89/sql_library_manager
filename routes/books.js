@@ -12,7 +12,7 @@ function asyncHandler(cb){
   }
 }
 
-/* GET books */
+/* GET all books */
 router.get('/', asyncHandler( async (req, res) => {
   res.redirect('/books')
 }));
@@ -21,11 +21,11 @@ router.get('/books', asyncHandler( async (req, res) => {
   const books = await Book.findAll({ order: [["id", "ASC"]] })
   res.render('books/index', { books, title: "Books" })
 }));
-
+//get form for new book
 router.get('/books/new', asyncHandler( async (req, res) => {
   res.render('books/new-book', { book: {} ,title: "New Book"})
 }))
-
+//post form
 router.post('/books/new', asyncHandler( async (req, res) => {
   let book;
   try {
@@ -70,7 +70,7 @@ router.post('/books/:id', asyncHandler( async (req, res, next) => {
     }
   }
 }))
-
+//post to delete a book
 router.post('/books/:id/delete', asyncHandler( async (req, res, next) => {
   const book = await Book.findByPk(req.params.id)
   if(book){
